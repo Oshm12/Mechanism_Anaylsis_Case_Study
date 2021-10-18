@@ -1,3 +1,6 @@
+close all;
+clear
+
 omega_9 = 0.5;
 omega_5 = 1;
 ab = 2.1
@@ -19,45 +22,48 @@ alpha_1_omega = 0.1;
 beta_1_omgea = alpha_1_omega * (z9/z0);
 
 beta_1 = linspace(-pi()/3, pi()/3, 50);
-alpha_1 = linspace(0, 4*pi(), 50);
+alpha_1 = linspace(0, 2*pi(), 50);
 
 xn = 0;
 yn = 0;
 
+a_centre_x = xn - an*sin(beta_1);
+a_centre_y = yn - an*cos(beta_1);
 
-xa = an*sin(beta_1) + 1.9*sin(alpha_1);
-ya = an*cos(beta_1) + 1.9*cos(alpha_1)
+xa = xn - an*sin(beta_1) + 1.9*sin(alpha_1);
+ya = yn - an*cos(beta_1) + 1.9*cos(alpha_1);
 
-xb = ab*cos((beta_1 + alpha_1));
-yb = ab*sin((beta_1 + alpha_1));
+xb = a_centre_x + ab*cos((-beta_1 + alpha_1));
+yb = a_centre_y + ab*sin((-beta_1 +   alpha_1));
 
 %USE SIN RULE TO CALCULATE SIGMA
 
 sigma = asin((sin(alpha_1)*ab)/bc);
 
-xc = ab*cos(alpha_1) + bc*cos(sigma);
-yc = ab*sin(alpha_1) - bc*sin(sigma);
+xc = a_centre_x + ab*sin(alpha_1) - bc*sin(sigma + beta_1);
+yc = a_centre_y + ab*cos(alpha_1) + bc*cos(sigma +beta_1);
 
 %beta_range = -pi()/3:0.1:pi()/3;
 
-ex = ce*sin(beta_1);
+ex = xc + ce*sin(beta_1);
 
-ey = ce*cos(beta_1);
+ey = yc + ce*cos(beta_1);
 
+figure(1);
 hold on;
-plot(ex,ey)  %arc
+grid on;
+
+pbaspect([1 1 1]);
+
+plot(xn ,yn, 'o');
+plot(a_centre_x, a_centre_y);
 plot(xa,ya);        %arc
-plot(xb, yb);    %circle (oval)
+plot(xb(1), yb(1) , 'o');    %circle (oval)
+plot(xb,yb);  
 plot(xc, yc);      %line atm
+plot(ex,ey)  %arc
 
 
 
-pbaspect([1 1 1])
 
 axis([-80 80 -20 100]);
-
-
-
-
-
-
