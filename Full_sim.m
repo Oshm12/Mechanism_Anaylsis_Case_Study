@@ -25,8 +25,8 @@ xn = 0;
 yn = 0;
 
 
-xa = an*sin(beta_1) + 1.9*sin
-ya = an*cos(beta_1);
+xa = an*sin(beta_1) + 1.9*sin(alpha_1);
+ya = an*cos(beta_1) + 1.9*cos(alpha_1)
 
 xb = ab*cos((beta_1 + alpha_1));
 yb = ab*sin((beta_1 + alpha_1));
@@ -55,6 +55,8 @@ plot(xc, yc);      %line atm
 pbaspect([1 1 1])
 
 axis([-80 80 -20 100]);
+
+
 
 
 
