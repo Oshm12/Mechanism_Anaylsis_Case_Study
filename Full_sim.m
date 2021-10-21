@@ -33,15 +33,15 @@ a_centre_y = yn - an*cos(beta_1);
 xa = xn - an*sin(beta_1) + 1.9*sin(alpha_1);
 ya = yn - an*cos(beta_1) + 1.9*cos(alpha_1);
 
-xb = a_centre_x + ab*cos((-beta_1 + alpha_1));
-yb = a_centre_y + ab*sin((-beta_1 +   alpha_1));
+xb = a_centre_x + ab*cos((- beta_1 + alpha_1));
+yb = a_centre_y + ab*sin((- beta_1 + alpha_1));
 
 %USE SIN RULE TO CALCULATE SIGMA
 
 sigma = asin((sin(alpha_1)*ab)/bc);
 
-xc = a_centre_x + ab*sin(alpha_1) - bc*sin(sigma + beta_1);
-yc = a_centre_y + ab*cos(alpha_1) + bc*cos(sigma +beta_1);
+xc = a_centre_x + ab*sin(alpha_1 - beta_1) - bc*sin(sigma + beta_1);
+yc = a_centre_y + ab*cos(alpha_1 - beta_1) + bc*cos(sigma + beta_1);
 
 %beta_range = -pi()/3:0.1:pi()/3;
 
@@ -62,6 +62,12 @@ plot(xb(1), yb(1) , 'o');    %circle (oval)
 plot(xb,yb);  
 plot(xc, yc);      %line atm
 plot(ex,ey)  %arc
+
+
+
+
+axis([-80 80 -20 100]);
+
 
 
 
