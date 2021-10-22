@@ -20,9 +20,33 @@ alpha_1 = pi()/3;
 %rate of change angle (speeds) 
 alpha_1_omega = 0.1;
 beta_1_omgea = alpha_1_omega * (z9/z0);
+close all;
+clear
+
+omega_9 = 0.5;
+omega_5 = 1;
+ab = 2.1
+bc = 15.5
+an = 4
+ce = 80
+z9 = 20     %pinion
+z0 = 90     %housing
+
+
+%optimistaion fmincom
+%fminbud
+[z0,z9,ab,bc];
+
+%%Important angles
+beta_1 = pi()/3;
+alpha_1 = pi()/3;
+
+%rate of change angle (speeds) 
+alpha_1_omega = 0.1;
+beta_1_omgea = alpha_1_omega * (z9/z0);
 
 beta_1 = linspace(-pi()/3, pi()/3, 50);
-alpha_1 = linspace(0, 2*pi(), 50);
+alpha_1 = linspace(pi() - ((z0/z9)*pi()/3), pi() + ((z0/z9)*pi()/3), 50);
 
 xn = 0;
 yn = 0;
@@ -70,6 +94,12 @@ axis([-80 80 -20 100]);
 
 
 
+%% OPTIMISATION 
 
+[z0,z9,ab,bc];
 
-axis([-80 80 -20 100]);
+polypoints_x = [ex xc];
+polypoints_y = [ey yc];
+    
+a = polyarea(polypoints_x, polypoints_y)
+
